@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class CurrencyExchangePage extends BasePage{
@@ -31,14 +30,6 @@ public class CurrencyExchangePage extends BasePage{
 
     @FindBy(xpath = "//button[contains(.,'Filter')]")
     public WebElement filterButton;
-
-    @FindBy(xpath = "//td[1]")
-    public WebElement filteredCurrencyResult;
-
-    public WebElement getInputBox(String boxName){
-        WebElement inputBox = Driver.get().findElement(By.xpath("//label[.='" + boxName + "']/../input"));
-        return inputBox;
-    }
 
     public void validateLossAmount(){
 
@@ -82,28 +73,4 @@ public class CurrencyExchangePage extends BasePage{
 
     }
 
-    //since there is no documentation, an expected country list was created for assertion
-    public List<String> getExpectedCountries() {
-        String[] countries = {"Lithuania", "Latvia", "Estonia", "Bulgaria",
-                "Spain","Romania", "Poland", "United Kingdom",
-                "Germany", "Russia", "Algeria", "Albania",
-                "Kosovo", "Ukraine", "France", "Another country"};
-        List<String> expectedCountries = Arrays.asList(countries);
-        return expectedCountries;
-    }
-    //since there is no documentation, an expected language list was created for assertion
-    public List<String> getExpectedLanguages() {
-        String[] languages = {"Lietuvių", "English", "Русский", "Polski", "Latviešu", "Eesti", "Български",
-                "Español", "Română", "Deutsch", "Shqip", "Shqip (Kosovë)", "Українська", "Français"};
-        List<String> expectedLanguages = Arrays.asList(languages);
-        return expectedLanguages;
-    }
-    //since there is no documentation, an expected currency list was created for assertion
-    public List<String> getExpectedCurrencies() {
-        String[] currencies = {"EUR","USD","RUB","DKK","PLN","NOK","GBP","SEK","CZK","AUD",
-                "CHF","JPY","CAD","HUF","RON","BGN","GEL","TRY","HRK","CNY","KZT","NZD",
-                "HKD","INR","ILS","MXN","ZAR","RSD","SGD","PHP","BYN","THB","ALL"};
-        List<String> expectedCurrencies = Arrays.asList(currencies);
-        return expectedCurrencies;
-    }
 }

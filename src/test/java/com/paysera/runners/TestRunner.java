@@ -14,5 +14,5 @@ import org.junit.runner.RunWith;
         dryRun =false,
         tags = "@smoke"
 )
-public class CukesRunner {
+public class TestRunner {
 }

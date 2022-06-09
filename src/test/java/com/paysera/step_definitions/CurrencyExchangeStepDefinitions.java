@@ -1,7 +1,7 @@
 package com.paysera.step_definitions;
 
 import com.paysera.pages.CurrencyExchangePage;
-import com.paysera.utilities.BrowserUtils;
+import com.paysera.utilities.Utilities;
 import com.paysera.utilities.ConfigurationReader;
 import com.paysera.utilities.Driver;
 import io.cucumber.java.en.*;
@@ -9,12 +9,11 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
-import static com.paysera.utilities.BrowserUtils.*;
+import static com.paysera.utilities.Utilities.*;
 import static org.junit.Assert.*;
 
-public class CurrencyExchangeStepDefs {
+public class CurrencyExchangeStepDefinitions {
 
     CurrencyExchangePage currencyExchangePage = new CurrencyExchangePage();
     String firstUSDRate;
@@ -79,10 +78,10 @@ public class CurrencyExchangeStepDefs {
     @When("user should select {string} from country options")
     public void user_should_select_from_country_options(String country) {
 
-        BrowserUtils.scrollToElement(currencyExchangePage.flagIcon);
+        Utilities.scrollToElement(currencyExchangePage.flagIcon);
         currencyExchangePage.flagIcon.click();
         currencyExchangePage.countries.click();
-        BrowserUtils.waitFor(2);
+        Utilities.waitFor(2);
         Driver.get().findElement(By.xpath("//a[contains(.,'" + country + "')]")).click();
         waitForPageToLoad(10);
     }
@@ -96,8 +95,8 @@ public class CurrencyExchangeStepDefs {
             e.printStackTrace();
         } finally {
 
-            BrowserUtils.waitForVisibility(currencyExchangePage.sellCurrency,30);
-            BrowserUtils.scrollToElement(currencyExchangePage.sellCurrency);
+            Utilities.waitForVisibility(currencyExchangePage.sellCurrency,30);
+            Utilities.scrollToElement(currencyExchangePage.sellCurrency);
             waitFor(2);
             String actualCurrency = currencyExchangePage.sellCurrency.getText();
             assertEquals(expectedCurrency, actualCurrency);
