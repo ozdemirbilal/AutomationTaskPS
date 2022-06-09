@@ -9,7 +9,7 @@ Maven, JUnit, Selenium WebDriver, Cucumber Reports.
 All automation is done in Java.
 
 Notes:
-The video is here: https://screenrec.com/share/IDunrel80h
+The test video is here: https://screenrec.com/share/IDunrel80h
 
 
 
